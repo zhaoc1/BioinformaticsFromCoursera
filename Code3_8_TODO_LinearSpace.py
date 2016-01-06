@@ -1,6 +1,6 @@
 import sys,math
 #Chunyu Zhao 20151109
-#Not Finished Yet...
+#TO FINISH...
 
 def getBLOSUM62():
 	with open('BLOSUM62.txt', 'r') as f:
