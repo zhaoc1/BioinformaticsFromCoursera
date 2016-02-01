@@ -57,14 +57,4 @@ if __name__ == '__main__':
 		test2 = lines[1]+'$'
 	else:
 		text = 'ATATCGTTTTATCGTT$'
-		text1 = 'CCAAGCTGCTAGAGG#'
-		text2 = 'CATGCTGGGCTGGCT$'
-		#text = text1 + text2
 	longestRepeats(text)
-	'''
-	edges,suffixtree = modifiedSuffixTreeConstruction(text)
-	#bfs(suffixtree)
-	#edgeTo,pathTo = findPaths(suffixtree,text,edges)
-	printSuffixTree(text,edges)
-	#LongestRepeatedSubstring(suffixtree,edges,text)
-	'''
