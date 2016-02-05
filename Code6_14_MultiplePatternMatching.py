@@ -1,14 +1,14 @@
 __author__ = 'Chunyu Zhao'
 #20150723,20160204
 
-import sys, BWT, BetterBWTMatching as BWTMatch, partialSuffixArray,numpy
+import sys, BWT, BetterBWTMatching as BWTMatch, partialSuffixArray
 
+C = 5
+K = 5
 def multiplePatternMatching(text, patterns):
 	"""Input that I can use: LastColumn, FirstOccurrence, CheckPointArray, PartialSuffixArray"""
 	lastC = BWT.BWT(text)
 	firstOccur = BWTMatch.firstOccurrence(lastC)
-	mapping = sorted(set(lastC))
-	symbolDict = {k:v for v, k in enumerate(mapping)}
 
 	partialsuffixarray = partialSuffixArray.partialSuffixArray(text, K)
 	checkpointarray = checkPointArray(lastC, C)
@@ -34,7 +34,6 @@ def suffixArray(text):
 
 def PatternMatching(suffixarray,firstOccur,lastC,checkpointarray,partialsuffixarray,pattern):
 	top,bottom = BetterBWMatching(firstOccur,lastC,checkpointarray,partialsuffixarray,pattern)
-
 	if top is None:
 		return None
 	position = suffixarray[top:bottom+1]
@@ -74,8 +73,6 @@ def checkPointArray(last, C):
 	return checkpointarray
 
 if __name__ == '__main__':
-	C = 5
-	K = 5
 	if len(sys.argv) == 2:
 		filename = sys.argv[1]
 		with open(filename) as f:
@@ -88,7 +85,3 @@ if __name__ == '__main__':
 	
 	positions = multiplePatternMatching(text, patterns)
 	print ' '.join(map(str,positions))
-	#print sorted(positions) == sorted(rets)
-	#print sorted(rets)[:10]
-	#print sorted(positions)[:10]
-	#print text[21:21+9]
